@@ -1,0 +1,67 @@
+media:
+  input: src/media
+  output: /media
+content:
+  - name: articles
+    label: True Crime / True Horror ဇာတ်လမ်းများ
+    type: collection
+    path: src/articles
+    format: json
+    filename: "{slug}.json"
+    view:
+      primary: title
+      fields: [title, category, date, published]
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: ဇာတ်လမ်းခေါင်းစဉ်
+        type: string
+        required: true
+      - name: slug
+        label: URL နာမည် (English, hyphens)
+        type: string
+        required: true
+        pattern: "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        description: "ဥပမာ - case-in-france-1939 (နေရာလွတ် မပါစေရ)"
+      - name: category
+        label: အမျိုးအစား
+        type: select
+        required: true
+        options:
+          values: ["True Crime", "True Horror", "Unsolved Mystery"]
+      - name: date
+        label: တင်သည့်ရက်စွဲ
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: country
+        label: ဖြစ်ရပ်ဖြစ်ခဲ့သောနိုင်ငံ
+        type: string
+        required: true
+      - name: year
+        label: ဖြစ်ရပ်ဖြစ်ခဲ့သောနှစ်
+        type: string
+        required: true
+      - name: summary
+        label: ဇာတ်လမ်းအကျဉ်း
+        type: text
+        required: true
+      - name: cover
+        label: ဓာတ်ပုံ (မရှိလည်းရ)
+        type: image
+      - name: body
+        label: ဇာတ်လမ်းအပြည့်အစုံ
+        type: rich-text
+        required: true
+      - name: source_links
+        label: မူရင်းအတည်ပြုနိုင်သည့် သတင်းရင်းမြစ် URL များ (တစ်ကြောင်းတစ်ခု)
+        type: text
+        description: "https://... လင့်ခ်ကို တစ်ကြောင်းစီ ထည့်ပါ"
+      - name: published
+        label: Website မှာ ဖော်ပြမလား
+        type: boolean
+        default: true

@@ -1,0 +1,9 @@
+{
+  "name": "myat-reddit-horror-blog",
+  "version": "1.0.0",
+  "private": true,
+  "description": "True Crime and True Horror Myanmar blog for Myat Reddit Horror",
+  "scripts": {
+    "build": "node build.js"
+  }
+}
