@@ -7,7 +7,7 @@ content:
     type: collection
     path: src/articles
     format: json
-    filename: "{primary}.json"
+    filename: "{slug}.json"
     view:
       primary: title
       fields: [title, category, date, published]
